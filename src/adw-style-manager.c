@@ -290,11 +290,7 @@ adw_style_manager_constructed (GObject *object)
                              self,
                              G_CONNECT_SWAPPED);
 
-    // if (!adw_is_granite_present () && !g_getenv ("GTK_THEME")) {
-    //   g_object_set (gtk_settings_get_for_display (self->display),
-    //                 "gtk-theme-name", "Adwaita-empty",
-    //                 NULL);
-
+    if (!adw_is_granite_present ()) {
       self->provider = gtk_css_provider_new ();
       gtk_style_context_add_provider_for_display (self->display,
                                                   GTK_STYLE_PROVIDER (self->provider),
